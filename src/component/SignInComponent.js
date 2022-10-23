@@ -1,10 +1,17 @@
 import React, { useState } from "react";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 function SignInComponent() {
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
   const [passwordError, setpasswordError] = useState("");
   const [emailError, setemailError] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [surname, setSurname] = useState("");
+  const [address, setAddress] = useState("");
+  const [birth, setBirth] = useState("");
+  const [username, setUsername] = useState("");
 
   const handleValidation = (event) => {
     let formIsValid = true;
@@ -34,7 +41,44 @@ function SignInComponent() {
 
   const loginSubmit = (e) => {
     e.preventDefault();
-    handleValidation();
+    const user = {
+      name: name,
+      surname: surname,
+      username: username,
+      password: password,
+      email: email,
+      address: address,
+      birth: birth,
+    };
+
+    console.log(user);
+    axios
+      .post("http://localhost:5001/users/add", user)
+      .then((res) => Swal.fire("Kullanıcı Oluşturuldu. Hoşgeldiniz."));
+  };
+  const onNameChange = (e) => {
+    setName(e.target.value);
+    console.log(name);
+  };
+  const onSurnameChange = (e) => {
+    setSurname(e.target.value);
+    console.log(surname);
+  };
+  const onEmailChange = (e) => {
+    setEmail(e.target.value);
+    console.log(email);
+  };
+  const onPasswordChange = (e) => {
+    setPassword(e.target.value);
+    console.log(password);
+  };
+  const onBirthChange = (e) => {
+    setBirth(e.target.value);
+    console.log(birth);
+  };
+  const onUsernameChange = (e) => {
+    setUsername(e.target.value);
+    console.log(username);
   };
 
   return (
@@ -46,31 +90,73 @@ function SignInComponent() {
               <h5 class="card-title text-center mb-5 fw-light fs-5">Sign Up</h5>
               <form>
                 <div class="form-floating mb-3">
+                  <label for="floatingInput">Email adres</label>
                   <input
                     type="email"
                     class="form-control"
                     id="floatingInput"
                     placeholder="name@example.com"
+                    onChange={onEmailChange}
                   />
-                  <label for="floatingInput">Email address</label>
                 </div>
                 <div class="form-floating mb-3">
+                  <label for="floatingInput">İsim</label>
                   <input
-                    type="password"
+                    type="email"
                     class="form-control"
-                    id="floatingPassword"
-                    placeholder="Password"
+                    id="floatingInput"
+                    placeholder="İsiminizi Giriniz"
+                    onChange={onNameChange}
                   />
+                </div>
+                <div class="form-floating mb-3">
+                  <label for="floatingInput">Soyisim</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="floatingInput"
+                    placeholder="Soyisminizi Giriniz"
+                    onChange={onSurnameChange}
+                  />
+                </div>
+                <div class="form-floating mb-3">
+                  <label for="floatingInput">Doğum Tarihi</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="floatingInput"
+                    placeholder="Doğum Tarihini Giriniz"
+                    onChange={onBirthChange}
+                  />
+                </div>
+                <div class="form-floating mb-3">
+                  <label for="floatingInput">Kullanıcı Adı</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="floatingInput"
+                    placeholder="Kullanıcı Adı Giriniz"
+                    onChange={onUsernameChange}
+                  />
+                </div>
+                <div class="form-floating mb-3">
                   <label for="floatingPassword">Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="floatingPassword"
+                    placeholder="Parola Giriniz"
+                    onChange={onPasswordChange}
+                  />
                 </div>
                 <div class="form-floating mb-3">
+                  <label for="floatingPassword">Password Again</label>
                   <input
                     type="password"
                     class="form-control"
                     id="floatingPassword"
                     placeholder="Password"
                   />
-                  <label for="floatingPassword">Password Again</label>
                 </div>
 
                 <div class="form-check mb-3">
@@ -88,8 +174,9 @@ function SignInComponent() {
                   <button
                     class="btn btn-primary btn-login text-uppercase fw-bold"
                     type="submit"
+                    onClick={loginSubmit}
                   >
-                    Sign in
+                    Kaydol
                   </button>
                 </div>
                 <hr class="my-4" />

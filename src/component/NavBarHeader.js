@@ -15,14 +15,16 @@ function NavBarHeader() {
         >
           <i class="fas fa-bars"></i>
         </button>
-        <a class="navbar-brand mt-2 mt-lg-0" href="#">
-          <img
-            src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
-            height="15"
-            alt="MDB Logo"
-            loading="lazy"
-          />
-        </a>
+        <Link to="/">
+          <a class="navbar-brand mt-2 mt-lg-0">
+            <img
+              src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
+              height="15"
+              alt="MDB Logo"
+              loading="lazy"
+            />
+          </a>
+        </Link>
 
         <div
           class="collapse navbar-collapse justify-content-center"
@@ -30,19 +32,19 @@ function NavBarHeader() {
         >
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="#">
-                Dashboard
-              </a>
+              <Link to="/benim-icin-al" class="nav-link">
+                Benim İçin Al
+              </Link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
-                Team
-              </a>
+              <Link to="/paket-yonlendirme" class="nav-link">
+                Paket Yönlendirme
+              </Link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
-                Projects
-              </a>
+              <Link to="/nasil-calisir" class="nav-link">
+                Nasıl Çalışır
+              </Link>
             </li>
           </ul>
         </div>
