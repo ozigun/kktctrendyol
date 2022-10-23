@@ -7,7 +7,6 @@ import Products from "../component/Products";
 function HomePage() {
   return (
     <div className="App">
-      <NavBarHeader />
       <Banner />
       <Products />
       <Application />

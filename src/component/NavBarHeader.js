@@ -1,116 +1,79 @@
+import { Link } from "react-router-dom";
+
 function NavBarHeader() {
   return (
-    <div className="NavBarHeader">
-      <header class="section-header">
-        <section class="header-main border-bottom">
-          <div class="container">
-            <div class="row align-items-center">
-              <div class="col-lg-2 col-4">KKTC TRENDYOL</div>
-              <div class="col-lg-6 col-sm-12">
-                <form action="#" class="search">
-                  <div class="input-group w-100">
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Lütfen almak istediğiniz ürünün linkini buraya yapıştırın"
-                    />
-                    <div class="input-group-append">
-                      <button class="btn btn-primary" type="submit">
-                        <i class="fa fa-search"></i>
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-              <div class="col-lg-4 col-sm-6 col-12">
-                <div class="widgets-wrap float-md-right">
-                  <div class="widget-header  mr-3">
-                    <a href="#" class="icon icon-sm rounded-circle border">
-                      <i class="fa fa-shopping-cart"></i>
-                    </a>
-                    <span class="badge badge-pill badge-danger notify">0</span>
-                  </div>
-                  <div class="widget-header icontext">
-                    <a href="#" class="icon icon-sm rounded-circle border">
-                      <i class="fa fa-user"></i>
-                    </a>
-                    <div class="text">
-                      <span class="text-muted">Hoş Geldiniz!</span>
-                      <div>
-                        <a href="#">Giriş Yap</a> |<a href="#"> Üye Ol</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <nav class="navbar navbar-main navbar-expand-lg navbar-light border-bottom">
-          <div class="container">
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#main_nav"
-              aria-controls="main_nav"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse " id="main_nav">
-              <ul class="navbar-nav mx-auto">
-                <li class="nav-item dropdown">
-                  <a class="nav-link" href="#">
-                    Benim İçin Al
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    Paket Yönlendirme
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    Nasıl Çalışır
-                  </a>
-                </li>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-mdb-toggle="collapse"
+          data-mdb-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+        <a class="navbar-brand mt-2 mt-lg-0" href="#">
+          <img
+            src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
+            height="15"
+            alt="MDB Logo"
+            loading="lazy"
+          />
+        </a>
 
-                <li class="nav-item dropdown">
-                  <a
-                    class="nav-link dropdown-toggle"
-                    data-toggle="dropdown"
-                    href="#"
-                  >
-                    {" "}
-                    More
-                  </a>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">
-                      Foods and Drink
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      Home interior
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                      Category 1
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      Category 2
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      Category 3
-                    </a>
-                  </div>
-                </li>
-              </ul>
+        <div
+          class="collapse navbar-collapse justify-content-center"
+          id="navbarSupportedContent"
+        >
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                Dashboard
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                Team
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                Projects
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="d-flex align-items-center ">
+          <a class="text-reset me-3" href="#">
+            <i class="fas fa-shopping-cart"></i>
+          </a>
+
+          <div class="btn-group">
+            <button
+              type="button"
+              class="btn btn-primary dropdown-toggle ml-3 mr-3"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Üye
+            </button>
+            <div class="dropdown-menu">
+              <Link class="dropdown-item" to="/login">
+                Giriş
+              </Link>
+              <Link to="/signup" class="dropdown-item">
+                Üye Ol
+              </Link>
             </div>
           </div>
-        </nav>
-      </header>
-    </div>
+        </div>
+      </div>
+    </nav>
   );
 }
 export default NavBarHeader;

@@ -1,6 +1,6 @@
 function Banner() {
   return (
-    <div className="App">
+    <div className="App mt-3">
       <section class="section-main bg padding-y">
         <div class="container">
           <div>
