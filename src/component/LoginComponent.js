@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 function LoginComponent() {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [passwordError, setpasswordError] = useState("");
   const [emailError, setemailError] = useState("");
+  const [data, setData] = useState("");
 
   const handleValidation = (event) => {
     let formIsValid = true;
@@ -32,10 +35,33 @@ function LoginComponent() {
     return formIsValid;
   };
 
-  const loginSubmit = (e) => {
+  const onSubmit = (e) => {
+    var a = data.find((x) => x.username === this.username);
+    if (a === undefined) {
+      Swal.fire({
+        icon: "error",
+        title: "Hatalı Giriş",
+        text: "Kullanıcı adınızı Kontrol edin!",
+      });
+    } else if (a.password === this.state.password) {
+      window.location = "/homepage/" + a._id;
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Hatalı Giriş",
+        text: "Parolanızı adını Kontrol edin!",
+      });
+    }
+    console.log(this.state.username, this.state.password);
     e.preventDefault();
-    handleValidation();
   };
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:5001/users/")
+      .then((res) => this.setData(res.data));
+    console.log(data);
+  });
 
   return (
     <div class="container">

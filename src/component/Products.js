@@ -5,9 +5,9 @@ function Products() {
         <div class="container">
           <header class="section-heading">
             <a href="#" class="btn btn-outline-primary float-right">
-              See all
+              Hepsini Gör
             </a>
-            <h3 class="section-title">Popular products</h3>
+            <h3 class="section-title">Popüler Ürünler</h3>
           </header>
 
           <div class="row">

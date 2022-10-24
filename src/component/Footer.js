@@ -6,99 +6,92 @@ function Footer() {
           <section class="footer-top  padding-y">
             <div class="row">
               <aside class="col-md col-6">
-                <h6 class="title">Brands</h6>
+                <h6 class="title">Mağazalar</h6>
                 <ul class="list-unstyled">
                   <li>
                     {" "}
-                    <a href="#">Adidas</a>
+                    <a href="#">Trendyol</a>
                   </li>
                   <li>
                     {" "}
-                    <a href="#">Puma</a>
+                    <a href="#">N11</a>
                   </li>
                   <li>
                     {" "}
-                    <a href="#">Reebok</a>
+                    <a href="#">HepsiBurada</a>
                   </li>
                   <li>
                     {" "}
-                    <a href="#">Nike</a>
+                    <a href="#">Morhipo</a>
                   </li>
                 </ul>
               </aside>
               <aside class="col-md col-6">
-                <h6 class="title">Company</h6>
+                <h6 class="title">Firma</h6>
                 <ul class="list-unstyled">
                   <li>
                     {" "}
-                    <a href="#">About us</a>
+                    <a href="#">Hakkımızda</a>
+                  </li>
+
+                  <li>
+                    {" "}
+                    <a href="#">Kurallar</a>
                   </li>
                   <li>
                     {" "}
-                    <a href="#">Career</a>
+                    <a href="#">Aydınlatma Metni</a>
                   </li>
                   <li>
                     {" "}
-                    <a href="#">Find a store</a>
-                  </li>
-                  <li>
-                    {" "}
-                    <a href="#">Rules and terms</a>
-                  </li>
-                  <li>
-                    {" "}
-                    <a href="#">Sitemap</a>
+                    <a href="#">Yasaklı Ürünler</a>
                   </li>
                 </ul>
               </aside>
               <aside class="col-md col-6">
-                <h6 class="title">Help</h6>
+                <h6 class="title">Yardım</h6>
                 <ul class="list-unstyled">
                   <li>
                     {" "}
-                    <a href="#">Contact us</a>
+                    <a href="#">İletişim</a>
                   </li>
                   <li>
                     {" "}
-                    <a href="#">Money refund</a>
+                    <a href="#">Para İadesi</a>
                   </li>
                   <li>
                     {" "}
-                    <a href="#">Order status</a>
+                    <a href="#">Sipariş Durumu</a>
                   </li>
                   <li>
                     {" "}
-                    <a href="#">Shipping info</a>
-                  </li>
-                  <li>
-                    {" "}
-                    <a href="#">Open dispute</a>
+                    <a href="#">Kargo Takip</a>
                   </li>
                 </ul>
               </aside>
               <aside class="col-md col-6">
-                <h6 class="title">Account</h6>
+                <h6 class="title">Hesap</h6>
                 <ul class="list-unstyled">
                   <li>
                     {" "}
-                    <a href="#"> User Login </a>
+                    <a href="#"> Kullanıcı Giriş </a>
                   </li>
                   <li>
                     {" "}
-                    <a href="#"> User register </a>
+                    <a href="#"> Kullanıcı Kaydı </a>
                   </li>
                   <li>
                     {" "}
-                    <a href="#"> Account Setting </a>
+                    <a href="#"> Hesap Ayarları </a>
                   </li>
                   <li>
                     {" "}
-                    <a href="#"> My Orders </a>
+                    <a href="#"> Siparişlerim </a>
                   </li>
                 </ul>
               </aside>
               <aside class="col-md">
-                <h6 class="title">Social</h6>
+                <h6 class="title">Sosyal Medya</h6>
                 <ul class="list-unstyled">
                   <li>
                     <a href="#">

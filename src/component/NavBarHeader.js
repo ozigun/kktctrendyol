@@ -36,14 +36,15 @@ function NavBarHeader() {
                 Benim İçin Al
               </Link>
             </li>
-            <li class="nav-item">
-              <Link to="/paket-yonlendirme" class="nav-link">
-                Paket Yönlendirme
-              </Link>
-            </li>
+
             <li class="nav-item">
               <Link to="/nasil-calisir" class="nav-link">
                 Nasıl Çalışır
+              </Link>
+            </li>
+            <li class="nav-item">
+              <Link to="/ucretlendirme" class="nav-link">
+                Ücretlendirme
               </Link>
             </li>
           </ul>

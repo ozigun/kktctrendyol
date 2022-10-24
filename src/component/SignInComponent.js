@@ -80,6 +80,10 @@ function SignInComponent() {
     setUsername(e.target.value);
     console.log(username);
   };
+  const onAddressChange = (e) => {
+    setAddress(e.target.value);
+    console.log(address);
+  };
 
   return (
     <div class="container">
@@ -150,12 +154,13 @@ function SignInComponent() {
                   />
                 </div>
                 <div class="form-floating mb-3">
-                  <label for="floatingPassword">Password Again</label>
+                  <label for="floatingPassword">Adres</label>
                   <input
                     type="password"
                     class="form-control"
                     id="floatingPassword"
                     placeholder="Password"
+                    onChange={onAddressChange}
                   />
                 </div>
 
