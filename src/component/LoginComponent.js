@@ -34,16 +34,23 @@ function LoginComponent() {
 
     return formIsValid;
   };
+  
+    useEffect(() => {
+    axios
+      .get("http://localhost:5001/users/")
+      .then((res) => setData(res.data));
+    console.log(data);
+});
 
   const onSubmit = (e) => {
-    var a = data.find((x) => x.username === this.username);
+    var a = data.find((x) => x.email === this.email);
     if (a === undefined) {
       Swal.fire({
         icon: "error",
         title: "Hatalı Giriş",
         text: "Kullanıcı adınızı Kontrol edin!",
       });
-    } else if (a.password === this.state.password) {
+    } else if (a.password === this.password) {
       window.location = "/homepage/" + a._id;
     } else {
       Swal.fire({
@@ -52,16 +59,24 @@ function LoginComponent() {
         text: "Parolanızı adını Kontrol edin!",
       });
     }
-    console.log(this.state.username, this.state.password);
+    console.log(this.username, this.password);
     e.preventDefault();
   };
-
-  useEffect(() => {
-    axios
-      .get("http://localhost:5001/users/")
-      .then((res) => this.setData(res.data));
+  
+    const onPasswordChange = (e) => {
+    setPassword(e.target.value);
+    console.log(password);
+  };
+  
+    const onEmailChange = (e) => {
+    setEmail(e.target.value);
+    console.log(email);
     console.log(data);
-  });
+  };
+
+
+  
+  
 
   return (
     <div class="container">
@@ -77,6 +92,7 @@ function LoginComponent() {
                     class="form-control"
                     id="floatingInput"
                     placeholder="name@example.com"
+                    onChange={onEmailChange}
                   />
                   <label for="floatingInput">Email address</label>
                 </div>
@@ -86,6 +102,7 @@ function LoginComponent() {
                     class="form-control"
                     id="floatingPassword"
                     placeholder="Password"
+                    onChange={onPasswordChange}
                   />
                   <label for="floatingPassword">Password</label>
                 </div>
@@ -105,6 +122,7 @@ function LoginComponent() {
                   <button
                     class="btn btn-primary btn-login text-uppercase fw-bold"
                     type="submit"
+                    onClick={onSubmit}
                   >
                     Sign in
                   </button>
