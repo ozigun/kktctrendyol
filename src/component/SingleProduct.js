@@ -1,9 +1,22 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import "jquery/dist/jquery.slim.min.js";
 import "popper.js/dist/umd/popper.min.js";
 
-function SingleProduct() {
+function SingleProduct(props) {
+  const [productIdd, setProductId] = useState([]);
+
+  let location = useLocation();
+  useEffect(() => {
+    setProductId(props.productIdd);
+  }, []);
+  /* const product = props.products.filter(
+    (product) => product._id === location.pathname.split("/singleproduct/")[1]
+  );
+
+  return !product.length ? (
+    <h1>loading</h1>
+  ) :*/
   return (
     <div className="single-product-container my-5">
       <section class="single-product">
@@ -18,11 +31,7 @@ function SingleProduct() {
                 >
                   <div class="carousel-inner">
                     <div class="carousel-item active">
-                      <img
-                        src="assets/images/product-3.jpg"
-                        alt=""
-                        class="img-fluid"
-                      />
+                      <img src={props.productImg} alt="" class="img-fluid" />
                     </div>
                     <div class="carousel-item">
                       <img
@@ -73,23 +82,16 @@ function SingleProduct() {
 
             <div class="col-md-7">
               <div class="single-product-details mt-5 mt-lg-0">
-                <h2>Eclipse Crossbody</h2>
+                <h5>{props.productTitle}</h5>
                 <div class="sku_wrapper mb-4">
-                  SKU: <span class="text-muted">AB1563456789 </span>
+                  SKU: <span class="text-muted">{props.productId} </span>
                 </div>
 
                 <hr />
 
-                <h3 class="product-price">
-                  $300 <del>$119.90</del>
-                </h3>
+                <h3 class="product-price">{props.productPrice}</h3>
 
-                <p class="product-description my-4 ">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Laborum ipsum dicta quod, quia doloremque aut deserunt commodi
-                  quis. Totam a consequatur beatae nostrum, earum consequuntur?
-                  Eveniet consequatur ipsum dicta recusandae.
-                </p>
+                <p class="product-description my-4 ">{props.productAbout}</p>
 
                 <form class="cart" action="#" method="post">
                   <div class="quantity d-flex align-items-center">
