@@ -1,9 +1,9 @@
 const router = require("express").Router();
-let User = require("../models/user.model");
+let Siparis = require("../models/siparis.model");
 
 router.route("/").get((req, res) => {
-  User.find()
-    .then((users) => res.json(users))
+  Siparis.find()
+    .then((siparisler) => res.json(siparisler))
     .catch((err) => res.status(400).json("Error:" + err));
 });
 
@@ -11,41 +11,39 @@ router.route("/add").post((req, res) => {
   const name = req.body.name;
   const surname = req.body.surname;
   const username = req.body.username;
-  const password = req.body.password;
-  const email = req.body.email;
+  const ilce = req.body.ilce;
   const address = req.body.address;
-  const birth = req.body.birth;
+  const phone = req.body.phone;
 
-  const newUser = new User({
+  const newSiparis = new Siparis({
     name,
     surname,
     username,
-    password,
-    email,
+    ilce,
     address,
-    birth,
+    phone,
   });
 
-  newUser
+  newSiparis
     .save()
-    .then(() => res.json("User added!"))
+    .then(() => res.json("Siparis added!"))
     .catch((err) => res.status(400).json("Error:" + err));
 });
 
 router.route("/:id").get((req, res) => {
-  User.findById(req.params.id)
+  Siparis.findById(req.params.id)
     .then((users) => res.json(users))
     .catch((err) => res.status(400).json("Error:" + err));
 });
 
 router.route("/:id").delete((req, res) => {
-  User.findByIdAndDelete(req.params.id)
+  Siparis.findByIdAndDelete(req.params.id)
     .then(() => res.json("User Deleted!"))
     .catch((err) => res.status(400).json("Error:" + err));
 });
 
 router.route("/:id").post((req, res) => {
-  User.findById(req.params.id)
+  Siparis.findById(req.params.id)
     .then((users) => {
       users.username = req.body.username;
     })

@@ -1,51 +1,45 @@
 const router = require("express").Router();
-let User = require("../models/user.model");
+let Prices = require("../models/prices.model");
 
 router.route("/").get((req, res) => {
-  User.find()
-    .then((users) => res.json(users))
+  Prices.find()
+    .then((prices) => res.json(prices))
     .catch((err) => res.status(400).json("Error:" + err));
 });
 
 router.route("/add").post((req, res) => {
-  const name = req.body.name;
-  const surname = req.body.surname;
-  const username = req.body.username;
-  const password = req.body.password;
-  const email = req.body.email;
-  const address = req.body.address;
-  const birth = req.body.birth;
+  const gumrukOrani = req.body.gumrukOrani;
+  const turkiyeKargoBedeli = req.body.turkiyeKargoBedeli;
+  const adaKargoBedeli = req.body.adaKargoBedeli;
+  const karOrani = req.body.karOrani;
 
-  const newUser = new User({
-    name,
-    surname,
-    username,
-    password,
-    email,
-    address,
-    birth,
+  const newPrices = new Prices({
+    gumrukOrani,
+    turkiyeKargoBedeli,
+    adaKargoBedeli,
+    karOrani,
   });
 
-  newUser
+  newPrices
     .save()
-    .then(() => res.json("User added!"))
+    .then(() => res.json("Prices added!"))
     .catch((err) => res.status(400).json("Error:" + err));
 });
 
 router.route("/:id").get((req, res) => {
-  User.findById(req.params.id)
+  Prices.findById(req.params.id)
     .then((users) => res.json(users))
     .catch((err) => res.status(400).json("Error:" + err));
 });
 
 router.route("/:id").delete((req, res) => {
-  User.findByIdAndDelete(req.params.id)
+  Prices.findByIdAndDelete(req.params.id)
     .then(() => res.json("User Deleted!"))
     .catch((err) => res.status(400).json("Error:" + err));
 });
 
 router.route("/:id").post((req, res) => {
-  User.findById(req.params.id)
+  Prices.findById(req.params.id)
     .then((users) => {
       users.username = req.body.username;
     })

@@ -12,6 +12,9 @@ import HowIsItWorks from "./pages/HowIsItWork";
 import BannedProductsPage from "./pages/BannedProductPage";
 import Prices from "./pages/Prices";
 import { productList } from "./productList";
+import AdminPanel from "./pages/AdminPanel";
+import AdminPanelSiparis from "./pages/AdminPanelSiparis";
+import AdminPanelPrices from "./pages/AdminPanelPrices";
 
 function App() {
   const [data, setData] = useState([]);
@@ -24,7 +27,7 @@ function App() {
 
   useEffect(() => {
     axios.get("http://localhost:5001/users/").then((response) => {
-      setSearchData(response.data);
+      setData(response.data);
       console.log(data);
     });
   }, []);
@@ -82,6 +85,12 @@ function App() {
           <Route
             path="/customer/:id"
             element={<CustomerPage userData={data} />}
+          />
+          <Route path="/admin" element={<AdminPanel userData={data} />} />
+          <Route path="/admin/prices" element={<AdminPanelPrices />} />
+          <Route
+            path="/admin/siparis"
+            element={<AdminPanelSiparis userData={data} />}
           />
         </Routes>
       </Router>
